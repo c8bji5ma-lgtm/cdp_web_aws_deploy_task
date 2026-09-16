@@ -41,4 +41,13 @@ namespace :deploy do
   end
 
   before "deploy:assets:precompile", "deploy:yarn_install"
+
+  desc "Restart Puma"
+  task :restart_puma do
+    on roles(:app) do
+      execute :sudo, "/usr/bin/systemctl", "restart", "puma.service"
+    end
+  end
+
+  after :publishing, :restart_puma
 end
