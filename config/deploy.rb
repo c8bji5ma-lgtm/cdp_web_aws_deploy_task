@@ -15,7 +15,7 @@ set :keep_releases, 5
 set :rbenv_type, :user
 set :rbenv_ruby, "4.0.5"
 
-set :bundle_version, "4.0.17"
+set :bundle_version, 4
 
 append :linked_dirs,
        ".bundle",
