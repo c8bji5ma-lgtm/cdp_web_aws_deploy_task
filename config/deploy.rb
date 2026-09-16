@@ -27,7 +27,16 @@ append :linked_dirs,
 
 set :default_env, {
   "RAILS_ENV" => "production",
-  "NODE_OPTIONS" => "--openssl-legacy-provider"
+  "NODE_OPTIONS" => "--openssl-legacy-provider",
+  "SECRET_KEY_BASE_DUMMY" => "1",
+
+  "POSTGRES_HOST" => ENV.fetch("POSTGRES_HOST", "127.0.0.1"),
+  "POSTGRES_PORT" => ENV.fetch("POSTGRES_PORT", "5432"),
+  "POSTGRES_USER" => ENV.fetch("POSTGRES_USER"),
+  "BLOG_APP_DATABASE_PASSWORD" => ENV.fetch("BLOG_APP_DATABASE_PASSWORD"),
+
+  "AWS_REGION" => ENV.fetch("AWS_REGION", "ap-northeast-1"),
+  "S3_BUCKET" => ENV.fetch("S3_BUCKET")
 }
 
 namespace :deploy do
